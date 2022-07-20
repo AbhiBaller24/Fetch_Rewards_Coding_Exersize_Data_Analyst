@@ -8,3 +8,4 @@
   transactions amongnst users created in the last 6 months
 - To View how I analyzed the the the data and parsed the data in the json files using python in 
   jupyter notebook view Data_Explore_Fetch_Rewards.ipynb
+- To View the Email to Stakeholder select Email to Stakeholder.pdf
