@@ -1,0 +1,15 @@
+-- brands with the most transactions amongnst users created in the last 6 months (Using SQL Server Syntax)
+
+WITH cte AS
+(SELECT t.Item_id, u.user_Id, u.createdDate, b.brandcode, b.name
+ FROM Users as u
+ INNER JOIN Transactions as t
+ ON u.user_Id = t.user_Id
+ INNER JOIN Brands as b
+ on t.brandCode = b.brandCode
+ WHERE u.createdDate > DATEADD(m, -6, current_timestamp)
+ 
+SELECT brandcode, name, MAX(num_transactions) as most_transaction_brand
+FROM (SELECT brandcode, name, COUNT(*) as num_transactions
+      FROM cte
+      GROUP BY brandcode);
